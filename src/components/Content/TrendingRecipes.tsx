@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import { Recipe } from "../Recipe/Recipe";
 
 export function TrendingRecipes() {
+
+  const getTrendingRecipes = async () => {
+
+  }
+
+  useEffect(() => {}, [])
+
   return (
     <section className="w-full flex flex-col items-center pt-5 min-h-[420px] bg-zinc-300 rounded-lg">
       <h1 className="text-gray-500 text-lg font-bold">
@@ -10,7 +18,6 @@ export function TrendingRecipes() {
         <Recipe />
         <Recipe />
         <Recipe />
-        
       </div>
     </section>
   );
