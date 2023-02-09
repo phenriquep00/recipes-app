@@ -1,8 +1,8 @@
-import { MagnifyingGlass } from "phosphor-react";
+import { Faders, MagnifyingGlass } from "phosphor-react";
 
 export function SearchBar() {
   return (
-    <div className="flex justify-between h-12 items-center gap-2 bg-zinc-400 rounded-lg w-1/2">
+    <div className="flex justify-between h-12 items-center gap-2 bg-zinc-500 rounded-lg w-1/2">
       <input
         type="search"
         name="search"
@@ -13,6 +13,9 @@ export function SearchBar() {
       />
       <button className="flex justify-center flex-1 h-full items-center rounded-lg">
         <MagnifyingGlass size={32} color="#f3f4f6" />
+      </button>
+      <button className="flex justify-center flex-1 h-full items-center mr-4 rounded-lg">
+        <Faders size={32} color="#f3f4f6" />
       </button>
     </div>
   );
