@@ -6,14 +6,12 @@ export function TrendingRecipes() {
 
   const checkCached = localStorage.getItem("trending");
 
-  // FIXME: the api request doesn't get setted to the trending state;
-
   const getTrendingRecipes = async () => {
     if (checkCached) {
-      console.log(checkCached)
-      
+      console.log(checkCached);
+
       setTrending(await JSON.parse(checkCached));
-      console.log(trending)
+      console.log(trending);
     } else {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/random?apiKey=${
@@ -21,26 +19,32 @@ export function TrendingRecipes() {
         }&number=8`
       );
       const data = await api.json();
-      console.log(data.recipes)
+      console.log(data.recipes);
 
       localStorage.setItem("trending", JSON.stringify(data.recipes));
       setTrending(data.recipes);
-      console.log(trending)
     }
   };
 
   useEffect(() => {
     getTrendingRecipes();
-    
   }, []);
+
+  useEffect(() => {
+    console.log(trending);
+  }, [trending]);
 
   return (
     <section className="w-full flex flex-col items-center pt-5 min-h-[420px] bg-zinc-300 rounded-lg">
       <h1 className="text-gray-500 text-lg font-bold">Trending Recipes</h1>
-      <div className="mt-8 flex gap-3">
-        {trending && trending.map(() => {
-          <Recipe />
-        })}
+      {/* TODO: add the carousel here:  */}
+      <div className="mt-8 flex w-full gap-3 text-black overflow-x-scroll">
+      {trending.length !== 0 &&
+          trending.map((recipe: any) => (
+            <div className="">
+             <Recipe />
+            </div>
+          ))}
       </div>
     </section>
   );
