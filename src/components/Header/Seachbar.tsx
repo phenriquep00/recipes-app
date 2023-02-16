@@ -2,7 +2,7 @@ import { Faders, MagnifyingGlass } from "phosphor-react";
 
 export function SearchBar() {
   return (
-    <div className="flex justify-between h-12 items-center gap-2 bg-zinc-500 rounded-lg w-1/2">
+    <div className="flex justify-between h-12 items-center gap-2 bg-zinc-500 rounded-lg w-1/2 shadow-2xl drop-shadow-xl">
       <input
         type="search"
         name="search"
