@@ -44,6 +44,7 @@ export function TrendingRecipes() {
             <div className="">
               <Recipe
                 key={index}
+                recipeId={recipe.id}
                 title={recipe.title}
                 image={recipe.image}
                 prepTime={recipe.readyInMinutes}

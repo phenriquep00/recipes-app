@@ -1,16 +1,17 @@
 import { Clock } from "phosphor-react";
 import { Link } from "react-router-dom";
 
-interface IRecipe {
+export interface IRecipe {
   title: string;
+  recipeId: string;
   image: string;
   prepTime: string;
 }
 
-export function Recipe({ title, image, prepTime }: IRecipe) {
+export function Recipe({ recipeId, title, image, prepTime }: IRecipe) {
   return (
     <Link
-      to={`/recipe/${title}`}
+      to={`/recipe/${recipeId}`}
       style={{
         backgroundImage: `url(${image})`,
       }}

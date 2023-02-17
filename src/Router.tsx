@@ -6,7 +6,7 @@ export function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/recipe/:recipeTitle" element={<RecipeDescription />}/>
+      <Route path="/recipe/:id" element={<RecipeDescription />}/>
     </Routes>
   );
 }
