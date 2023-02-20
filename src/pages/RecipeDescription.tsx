@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import sanitizeHtml from "sanitize-html";
 import { fetchSingleRecipe } from "../utils/fetchSingleRecipe";
+import { Loading } from "../components/Loading/Loading";
 
 export function RecipeDescription() {
   const { id } = useParams<{ id: string }>();
@@ -22,7 +23,7 @@ export function RecipeDescription() {
   }, [id]);
 
   if (!recipe) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   return (
     <main className="flex flex-col items-center min-w-[100vw] min-h-screen gap-10 pb-5 bg-gradient-to-bl from-zinc-100 to-zinc-300">
