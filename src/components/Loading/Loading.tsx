@@ -1,5 +1,4 @@
 import ReactLoading from 'react-loading';
-import { colors } from '../../utils/colors';
 
 export function Loading() {
     return (

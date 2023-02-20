@@ -29,6 +29,7 @@ export function RecipeDescription() {
     <main className="flex flex-col items-center min-w-[100vw] min-h-screen gap-10 pb-5 bg-gradient-to-bl from-zinc-100 to-zinc-300">
       <Header />
       <h1 className="text-black font-bold text-xl">{recipe.title}</h1>
+      {/* General Description */}
       <div className="flex gap-4 w-[85%] items-center justify-center">
         <img
           className="rounded-2xl shadow-2xl drop-shadow"
@@ -44,6 +45,13 @@ export function RecipeDescription() {
           </p>
         </div>
       </div>
+      {/* --------------------------------------------------------------------------- */}
+      {/* Ingredients */}
+      {/* --------------------------------------------------------------------------- */}
+      {/* Preparation */}
+      {/* --------------------------------------------------------------------------- */}
+      {/* Suggested recipes */}
+      {/* --------------------------------------------------------------------------- */}
     </main>
   );
 }
