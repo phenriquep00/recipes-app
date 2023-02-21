@@ -5,10 +5,13 @@ import { useEffect, useState } from "react";
 import sanitizeHtml from "sanitize-html";
 import { fetchSingleRecipe } from "../utils/fetchSingleRecipe";
 import { Loading } from "../components/Loading/Loading";
+import { Ingredient } from "../components/Ingredients/Ingredient";
 
 export function RecipeDescription() {
   const { id } = useParams<{ id: string }>();
+
   const [recipe, setRecipe] = useState<any | null>(null);
+  const [ingredients, setIngredients] = useState<any | null>(null);
 
   useEffect(() => {
     async function getRecipe() {
@@ -21,6 +24,13 @@ export function RecipeDescription() {
     }
     getRecipe();
   }, [id]);
+
+  /* check if the recipe object exists, then extract the ingredients from it */
+  useEffect(() => {
+    if (recipe) {
+      setIngredients(recipe.extendedIngredients);
+    }
+  }, [recipe]);
 
   if (!recipe) {
     return <Loading />;
@@ -47,6 +57,20 @@ export function RecipeDescription() {
       </div>
       {/* --------------------------------------------------------------------------- */}
       {/* Ingredients */}
+      <div className="bg-zinc-300 w-[85%] p-4 rounded-xl">
+        {ingredients !== null &&
+          ingredients.map((ingredient: any) => {
+            return (
+              <Ingredient
+                key={ingredient.id}
+                name={ingredient.name}
+                amount={ingredient.amount}
+                unit={ingredient.unit}
+              />
+            );
+          })}
+      </div>
+
       {/* --------------------------------------------------------------------------- */}
       {/* Preparation */}
       {/* --------------------------------------------------------------------------- */}
