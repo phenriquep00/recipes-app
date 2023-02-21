@@ -9,6 +9,7 @@ import { Ingredient } from "../components/Ingredients/Ingredient";
 import { sampleRecipe } from "../utils/sampleRecipes";
 import { IngredientSection } from "../components/Ingredients/IngredientSection";
 import { extractPreparationMethod } from "../utils/extractPreparationMethod";
+import { PreparationSection } from "../components/Preparation/PreparationSection";
 
 export function RecipeDescription() {
   const { id } = useParams<{ id: string }>();
@@ -63,23 +64,7 @@ export function RecipeDescription() {
       </div>
       {/* --------------------------------------------------------------------------- */}
       <IngredientSection ingredients={ingredients}/>
-      {/* Preparation */}
-      <div className="bg-zinc-300 text-gray-700 w-[85%] p-4 flex flex-col rounded-xl">
-        <h2 className="self-center font-bold text-xl text-zinc-700 mb-3">
-          Preparation
-        </h2>
-        <ul className="list-decimal flex flex-col ml-16 gap-3 font-medium text-lg">
-          {preparationMethod && preparationMethod.map((step: any) => {
-            return (
-              <li>
-                {step}
-              </li>
-            )
-          })}
-        </ul>
-          
-      </div>
-      {/* --------------------------------------------------------------------------- */}
+      <PreparationSection preparationMethod={preparationMethod}/>
       {/* Suggested recipes */}
       {/* --------------------------------------------------------------------------- */}
     </main>
