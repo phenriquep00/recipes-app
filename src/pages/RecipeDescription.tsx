@@ -9,6 +9,7 @@ import { sampleRecipe } from "../utils/sampleRecipes";
 import { IngredientSection } from "../components/Ingredients/IngredientSection";
 import { extractPreparationMethod } from "../utils/extractPreparationMethod";
 import { PreparationSection } from "../components/Preparation/PreparationSection";
+import { TrendingRecipes } from "../components/Content/TrendingRecipes";
 
 export function RecipeDescription() {
   const { id } = useParams<{ id: string }>();
@@ -64,8 +65,9 @@ export function RecipeDescription() {
       {/* --------------------------------------------------------------------------- */}
       <IngredientSection ingredients={ingredients}/>
       <PreparationSection preparationMethod={preparationMethod}/>
-      {/* Suggested recipes */}
-      {/* --------------------------------------------------------------------------- */}
+      <div className="w-[85%]">
+        <TrendingRecipes />
+      </div>
     </main>
   );
 }
