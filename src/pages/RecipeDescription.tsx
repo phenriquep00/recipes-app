@@ -8,12 +8,14 @@ import { Loading } from "../components/Loading/Loading";
 import { Ingredient } from "../components/Ingredients/Ingredient";
 import { sampleRecipe } from "../utils/sampleRecipes";
 import { IngredientSection } from "../components/Ingredients/IngredientSection";
+import { extractPreparationMethod } from "../utils/extractPreparationMethod";
 
 export function RecipeDescription() {
   const { id } = useParams<{ id: string }>();
 
   const [recipe, setRecipe] = useState<any | null>(sampleRecipe);
   const [ingredients, setIngredients] = useState<any | null>(null);
+  const [preparationMethod, setPreparationMethod] = useState<any | null>(null);
 
   // TODO: enable this useEffect when api calls get back
   /* useEffect(() => {
@@ -32,6 +34,7 @@ export function RecipeDescription() {
   useEffect(() => {
     if (recipe) {
       setIngredients(recipe.extendedIngredients);
+      setPreparationMethod(extractPreparationMethod(recipe))
     }
   }, [recipe]);
 
@@ -61,6 +64,21 @@ export function RecipeDescription() {
       {/* --------------------------------------------------------------------------- */}
       <IngredientSection ingredients={ingredients}/>
       {/* Preparation */}
+      <div className="bg-zinc-300 text-gray-700 w-[85%] p-4 flex flex-col rounded-xl">
+        <h2 className="self-center font-bold text-xl text-zinc-700 mb-3">
+          Preparation
+        </h2>
+        <ul className="list-decimal flex flex-col ml-16 gap-3 font-medium text-lg">
+          {preparationMethod && preparationMethod.map((step: any) => {
+            return (
+              <li>
+                {step}
+              </li>
+            )
+          })}
+        </ul>
+          
+      </div>
       {/* --------------------------------------------------------------------------- */}
       {/* Suggested recipes */}
       {/* --------------------------------------------------------------------------- */}
