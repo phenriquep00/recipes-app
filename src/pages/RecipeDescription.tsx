@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import sanitizeHtml from "sanitize-html";
 import { fetchSingleRecipe } from "../utils/fetchSingleRecipe";
 import { Loading } from "../components/Loading/Loading";
-import { Ingredient } from "../components/Ingredients/Ingredient";
 import { sampleRecipe } from "../utils/sampleRecipes";
 import { IngredientSection } from "../components/Ingredients/IngredientSection";
 import { extractPreparationMethod } from "../utils/extractPreparationMethod";
