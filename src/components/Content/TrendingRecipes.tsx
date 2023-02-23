@@ -41,9 +41,8 @@ export function TrendingRecipes() {
       <div className="mt-8 pl-4 flex w-full h-full pt-4 gap-3 text-white overflow-x-scroll">
         {trending.length !== 0 &&
           trending.map((recipe: any, index: number) => (
-            <div className="">
+            <div key={recipe.id} className="">
               <Recipe
-                key={index}
                 recipeId={recipe.id}
                 title={recipe.title}
                 image={recipe.image}
