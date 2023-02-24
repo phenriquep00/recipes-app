@@ -1,10 +1,13 @@
 import { Faders, MagnifyingGlass } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ShowResultsContext } from "../../hooks/ShowResultsContext";
 
 
 export function SearchBar() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<any | null>(null);
+
+  const {showResults, setShowResults} = useContext(ShowResultsContext);
 
   async function searchRecipes(query: string): Promise<any[]> {
     const response = await fetch(
@@ -24,6 +27,7 @@ export function SearchBar() {
 
     const apiResult = await searchRecipes(query);
     setResults(apiResult);
+    setShowResults(true);
   };
 
   useEffect(() => {
