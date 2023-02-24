@@ -1,6 +1,7 @@
 import { Faders, MagnifyingGlass } from "phosphor-react";
 import { useEffect, useState } from "react";
 
+
 export function SearchBar() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<any | null>(null);
@@ -50,13 +51,13 @@ export function SearchBar() {
       >
         <MagnifyingGlass size={32} color="#f3f4f6" />
       </button>
-      <a
+      {/* <a
         href="/"
         target="_blank"
         className="flex justify-center flex-1 h-full items-center mr-4 rounded-lg"
       >
         <Faders size={32} color="#f3f4f6" />
-      </a>
+      </a> */}
     </form>
   );
 }
