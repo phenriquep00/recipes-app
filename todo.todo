@@ -1,5 +1,6 @@
 # TODO: 
 
-- Add custom pages on click for every recipes
-- make search bar work
-- add custom pages to Tags
+- go to top of the page when changing recipe description from another recipe
+- add carousel to trending recipes
+- add functionality to PopularTags components
+- add the sidebar with some functionalities
