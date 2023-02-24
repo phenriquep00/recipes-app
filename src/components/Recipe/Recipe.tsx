@@ -14,6 +14,7 @@ export function Recipe({ recipeId, title, image, prepTime }: IRecipe) {
       to={`/recipe/${recipeId}`}
       style={{
         backgroundImage: `url(${image})`,
+        backgroundSize: 'cover',
       }}
       className="w-56 h-72 rounded-lg bg-zinc-300 flex flex-col items-center justify-center shadow-md drop-shadow-2xl hover:cursor-pointer hover:scale-105 transition-transform ease-in-out z-20"
     >

@@ -14,12 +14,12 @@ import { TrendingRecipes } from "../components/Content/TrendingRecipes";
 export function RecipeDescription() {
   const { id } = useParams<{ id: string }>();
 
-  const [recipe, setRecipe] = useState<any | null>(sampleRecipe);
+  const [recipe, setRecipe] = useState<any | null>(null);
   const [ingredients, setIngredients] = useState<any | null>(null);
   const [preparationMethod, setPreparationMethod] = useState<any | null>(null);
 
   // TODO: enable this useEffect when api calls get back
-  /* useEffect(() => {
+  useEffect(() => {
     async function getRecipe() {
       try {
         const data = await fetchSingleRecipe(parseInt(id!));
@@ -29,7 +29,7 @@ export function RecipeDescription() {
       }
     }
     getRecipe();
-  }, [id]); */
+  }, [id]);
 
   /* check if the recipe object exists, then extract the ingredients from it */
   useEffect(() => {
