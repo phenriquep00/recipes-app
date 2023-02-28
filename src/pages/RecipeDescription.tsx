@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Header } from "../components/Header/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import sanitizeHtml from "sanitize-html";
 import { fetchSingleRecipe } from "../utils/fetchSingleRecipe";
@@ -29,13 +29,14 @@ export function RecipeDescription() {
       }
     }
     getRecipe();
+    window.scrollTo(0, 0);
   }, [id]);
 
   /* check if the recipe object exists, then extract the ingredients from it */
   useEffect(() => {
     if (recipe) {
       setIngredients(recipe.extendedIngredients);
-      setPreparationMethod(extractPreparationMethod(recipe))
+      setPreparationMethod(extractPreparationMethod(recipe));
     }
   }, [recipe]);
 
@@ -63,8 +64,8 @@ export function RecipeDescription() {
         </div>
       </div>
       {/* --------------------------------------------------------------------------- */}
-      <IngredientSection ingredients={ingredients}/>
-      <PreparationSection preparationMethod={preparationMethod}/>
+      <IngredientSection ingredients={ingredients} />
+      <PreparationSection preparationMethod={preparationMethod} />
       <div className="w-[85%]">
         <TrendingRecipes />
       </div>
